@@ -1,0 +1,7 @@
+2012-04-16 15:21:25-0500 [-] Log opened.
+2012-04-16 15:21:25-0500 [-] __main__.ProxyFactory starting on 8080
+2012-04-16 15:21:25-0500 [-] Starting factory <__main__.ProxyFactory instance at 0x2726ab8>
+2012-04-16 15:21:27-0500 [-] Received SIGINT, shutting down.
+2012-04-16 15:21:27-0500 [__main__.ProxyFactory] (TCP Port 8080 Closed)
+2012-04-16 15:21:27-0500 [__main__.ProxyFactory] Stopping factory <__main__.ProxyFactory instance at 0x2726ab8>
+2012-04-16 15:21:27-0500 [-] Main loop terminated.
