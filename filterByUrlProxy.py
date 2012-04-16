@@ -11,8 +11,6 @@ from twisted.web.http import HTTPClient, Request, HTTPChannel
 
 import sys
 
-log.startLogging(sys.stdout)
-
 class modifiedProxyRequest(Request):
    """
    Used by Proxy to implement a simple web proxy.
