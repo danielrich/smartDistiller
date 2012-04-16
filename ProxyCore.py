@@ -4,6 +4,7 @@
 
 """
 Simplistic HTTP proxy support.
+This is mainly derived from twisted's proxy
 
 This comes in two main variants - the Proxy and the ReverseProxy.
 
@@ -27,8 +28,8 @@ from twisted.internet.protocol import ClientFactory
 from twisted.web.resource import Resource
 from twisted.web.server import NOT_DONE_YET
 from twisted.web.http import HTTPClient, Request, HTTPChannel
-
-
+import FilterCore
+import ConfigCore
 
 class ProxyClient(HTTPClient):
     """
@@ -139,13 +140,12 @@ class ProxyRequest(Request):
         Request.__init__(self, channel, queued)
         self.reactor = reactor
 
-    def failFiltering(self):
-        return False
-
-
     def process(self):
-        if self.failFiltering() :
-           self.uri = "http://localhost"
+        if FilterCore.failFiltering(self.uri) :
+           # This uri should be local configuration server
+           # to allow a user to override the block or something
+           # like that
+           self.uri = ConfigCore.getWebAddress()
 
         parsed = urlparse.urlparse(self.uri)
         protocol = parsed[0]
