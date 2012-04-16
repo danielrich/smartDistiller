@@ -167,17 +167,6 @@ class ProxyRequest(Request):
                                s, self)
         self.reactor.connectTCP(host, port, clientFactory)
 
-class ProxyFilteredRequest(ProxyRequest):
-    """
-    Used by Proxy to implement a simple web proxy.
-
-    @ivar reactor: the reactor used to create connections.
-    @type reactor: object providing L{twisted.internet.interfaces.IReactorTCP}
-    """
-    def failFiltering(self):
-        print ("whow filtering")
-        return True
-
 
 class Proxy(HTTPChannel):
     """
@@ -194,4 +183,4 @@ class Proxy(HTTPChannel):
     a fully-functioning web proxy!
     """
 
-    requestFactory = ProxyFilteredRequest
+    requestFactory = ProxyRequest
